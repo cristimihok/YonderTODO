@@ -8,9 +8,9 @@ function createListItem(){
 	var newListItem = document.createElement('LI');
 	var newListCheckBox = document.createElement('INPUT');
 	newListCheckBox.type = 'checkbox';
-	var newTextNode = document.createTextNode((++i) + ': ' + inputTodo.value);
-	newListItem.appendChild(newTextNode);
+	var newTextNode = document.createTextNode('  ' + inputTodo.value);
 	newListItem.appendChild(newListCheckBox);
+	newListItem.appendChild(newTextNode);
 	return newListItem;
 }
 
@@ -23,22 +23,34 @@ function createDiv(){
 }
 
 var addHandler = function(e){
-	if (e.keyCode == 13){		
-		var newDiv = createDiv();	
-		listTodo.appendChild(newDiv);
-	}	
+	if (inputTodo.value){
+		if (e.keyCode == 13){		
+			var newDiv = createDiv();	
+			listTodo.appendChild(newDiv);
+			newTodo.value = "";
+		}	
+	}
+	
 }
 
 function getSelectedIndexList () {
-	var selectedIndexes = new Array();
+	var selectedItems = new Array();
 	for (var i = 0; i < listTodo.children.length; i++) {
-		console.log(listTodo.children[i].firstChild.lastChild.value);
+		if (listTodo.children[i].children[0].children[0].checked){
+			selectedItems.push(listTodo.children[i]);
+		}		
+		//console.log(listTodo.children[i].children[0].children[0].checked);
 	}
-		
+	//console.log(selectedIndexes);
+	return selectedItems;		
 }
 
 var deleteHandler = function(e){
-	listTodo.firstChild.lastChild.value
+	var i;
+	var selectedItems = getSelectedIndexList();
+	for (i = 0; i < selectedItems.length; ++i){
+		listTodo.removeChild(selectedItems[i]);
+	}
 }
 	
 inputTodo.addEventListener('keypress', addHandler, false);
