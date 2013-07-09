@@ -29,9 +29,16 @@ var addHandler = function(e){
 	}	
 }
 
+function getSelectedIndexList () {
+	var selectedIndexes = new Array();
+	for (var i = 0; i < listTodo.children.length; i++) {
+		console.log(listTodo.children[i].firstChild.lastChild.value);
+	}
+		
+}
+
 var deleteHandler = function(e){
-	var test = document.getElementById('list');
-	test.removeChild(test.firstChild);
+	listTodo.firstChild.lastChild.value
 }
 	
 inputTodo.addEventListener('keypress', addHandler, false);
