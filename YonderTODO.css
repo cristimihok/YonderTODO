@@ -40,7 +40,6 @@ input::-webkit-input-placeholder{
 
 input:focus {
     color: grey;
-
 }
 
 #list{
@@ -48,28 +47,50 @@ input:focus {
 	padding: 0;
 	margin: 0;
 	text-indent: 5px;
-	max-width: 405px;
+	max-width: 410px;
 }
 
 #listDiv{
 	color: white;
-	max-width: 405px;
+	max-width: 410px;
 	border: 1px solid white; 
 	background-color: rgba(46, 125, 197, 0.84);  
 	font-size: 30px; 
 	border-radius: 10px; 
 }
 
-input[type = checkbox]{
-	float:left;
-	top: 0;
-    right: 0;
-    bottom: 0;	
+#bottomListItem{
+	visibility: hidden;
+	max-width: 410px;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: red;
+	border-radius: 10px;
 }
 
+#remainingTxt{	
+	margin-left: 80px;	
+	color: grey;
+}
 
+input[type = checkbox]{
+	margin-right: 10px;
+}
 
+button{
+	font-family: "Arial";
+	font-style: italic;
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(141, 141, 141);
+	border-color: rgb(255, 255, 255);
+}
 
+#btn1{
+	position: relative;
+	float: right;
+	margin-right: 3px;
+}
 
 
 
