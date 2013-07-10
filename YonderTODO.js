@@ -7,7 +7,7 @@ var bottomListItem = document.getElementById('bottomListItem');
 var remainingTxt = document.getElementById('remainingTxt');
 
 var selectState = false;
-
+//creates a new list item <li>
 function createListItem(){
 	var newListItem = document.createElement('LI');
 	var newListCheckBox = document.createElement('INPUT');
@@ -19,6 +19,7 @@ function createListItem(){
 	return newListItem;
 }
 
+//creates the DIV that contains the list item
 function createDiv(){
 	var newDiv = document.createElement('DIV');			
 	var newListItem = createListItem();	
@@ -27,6 +28,7 @@ function createDiv(){
 	return newDiv;
 }
 
+//returns an ARRAY with selected objects from TODO list
 function getSelectedItemsList () {
 	var selectedItems = new Array();
 	for (var i = 0; i < listTodo.children.length; i++) {
@@ -37,16 +39,18 @@ function getSelectedItemsList () {
 	return selectedItems;		
 }
 
+//sets the state for the checkboxes from TODO list
 function toggleBotoomLI(state){
 	bottomListItem.style.visibility = state;
 }
 
+//returns the item number from TODO list
 function getRemainingItems(){
 	var remainingItems = listTodo.children.length;
 	return remainingItems;
 }
 
-
+//adds a new TODO item in <ul>
 var addHandler = function(e){
 	if (inputTodo.value){
 		if (e.keyCode == 13){
@@ -60,6 +64,7 @@ var addHandler = function(e){
 	
 }
 
+//deletes the selected items from list <ul>
 var deleteHandler = function(e){
 	var i;
 	var selectedItems = getSelectedItemsList();
@@ -73,6 +78,7 @@ var deleteHandler = function(e){
 	remainingItemsHandler();
 }
 
+//sets the state of checkboxes from TODO list <ul>
 var selectAllHandler = function (e) {
 	if (selectState){
 		selectState = false;
@@ -84,14 +90,12 @@ var selectAllHandler = function (e) {
 	}
 }
 
+
 var remainingItemsHandler = function (e) {
 	remainingTxt.innerHTML = 'remaining: ' + getRemainingItems();
 }
 
-
-
-
-	
+//adding listeners to elements from DOM	
 inputTodo.addEventListener('keypress', addHandler, false);
 delBtn.addEventListener('click', deleteHandler, false);
 selAllBtn.addEventListener('click', selectAllHandler, false);
