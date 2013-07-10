@@ -53,11 +53,11 @@ function getRemainingItems(){
 //adds a new TODO item in <ul>
 var addHandler = function(e){
 	if (inputTodo.value){
-		if (e.keyCode == 13){
-			toggleBotoomLI('visible');		
+		if (e.keyCode == 13){					
 			var newDiv = createDiv();	
 			listTodo.appendChild(newDiv);
 			newTodo.value = "";
+			toggleBotoomLI('visible');
 		}	
 	}
 	remainingItemsHandler();
